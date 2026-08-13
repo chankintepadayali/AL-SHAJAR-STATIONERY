@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Shop</title>
+<title>Al Shajar Stationery</title>
 <style>
 :root {
 --bg-color: #f0f0f0;
@@ -26,63 +26,84 @@
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 margin: 0;
-padding: 20px;
-text-align: center;
+padding: 0;
 background-color: var(--bg-color);
 color: var(--text-color);
 transition: background-color 0.3s, color 0.3s;
 }
+nav {
+background-color: var(--header-bg);
+padding: 15px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.nav-links {
+display: flex;
+gap: 20px;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+.nav-links a {
+color: var(--text-color);
+text-decoration: none;
+font-weight: bold;
+}
 header {
 background-color: var(--header-bg);
 padding: 30px;
-margin-bottom: 30px;
+margin: 30px auto;
 border-radius: 12px;
 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-max-width: 600px;
-margin-left: auto;
-margin-right: auto;
-transition: background-color 0.3s;
+max-width: 800px;
+text-align: center;
 }
 h1 { margin: 10px 0 0 0; font-size: 2.5em; }
-
-/*logo size change */
-.logo { 
-  max-width: 900px; 
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px; 
-}
-
-.controls { margin-bottom: 20px; font-size: 1.1em; }
+.logo { max-width: 150px; margin-bottom: 20px; }
+.controls { margin-top: 20px; font-size: 1.1em; }
 select { padding: 8px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; margin: 0 10px; }
 .products { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
-.product {
-border: 1px solid #ddd;
-padding: 25px;
-width: 220px;
-border-radius: 10px;
+.product { 
+border: 1px solid #ddd; 
+padding: 25px; 
+width: 220px; 
+border-radius: 10px; 
 background-color: var(--card-bg);
 box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 transition: transform 0.3s ease, background-color 0.3s;
 }
 .product:hover { transform: translateY(-5px); }
 .price { color: var(--price-color); font-weight: bold; font-size: 1.2em; margin-bottom: 15px; }
-button {
-background-color: var(--btn-bg);
-color: var(--btn-text);
-border: none;
-padding: 12px 25px;
-border-radius: 5px;
-cursor: pointer;
-font-size: 1em;
+button { 
+background-color: var(--btn-bg); 
+color: var(--btn-text); 
+border: none; 
+padding: 12px 25px; 
+border-radius: 5px; 
+cursor: pointer; 
+font-size: 1em; 
 transition: background-color 0.3s ease;
 }
 button:hover { background-color: #2980b9; }
-footer { margin-top: 60px; font-size: 0.9em; }
+footer { margin-top: 60px; padding: 20px; text-align: center; background-color: var(--header-bg); }
 </style>
 </head>
 <body>
-<header>
+
+<nav>
+<div style="font-weight: bold; font-size: 1.2em;">AL-SHAJAR</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#stationery">Stationery</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header id="home">
 <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/a8445694d08efae8d7dea28da6da45d875d8f605/WhatsApp%20Image%202023-11-22%20at%2011.14.19%20PM..-2_page-0001.jpg" alt="Shop Logo" class="logo">
 <div class="controls">
 <label for="lang">Language: </label>
@@ -91,6 +112,7 @@ footer { margin-top: 60px; font-size: 0.9em; }
 <option value="ml">മലയാളം</option>
 <option value="ar">العربية</option>
 </select>
+
 <label for="theme">Theme: </label>
 <select id="theme" onchange="changeTheme()">
 <option value="light">Light</option>
@@ -99,23 +121,29 @@ footer { margin-top: 60px; font-size: 0.9em; }
 </select>
 </div>
 <h1 id="title">Welcome</h1>
-<p id="subtitle">Your favorite shop</p>
+<p id="subtitle">Your premier stationery destination in Sharjah</p>
 </header>
+
+<section id="stationery">
+<h2 style="text-align: center;">Our Stationery</h2>
 <div class="products">
 <div class="product">
-<h3 id="prod1">Product 1</h3>
-<p class="price">₹500</p>
-<button id="buy1">Buy Now</button>
+<h3 id="prod1">Premium Notebook</h3>
+<p class="price">AED 15</p>
+<button>Buy Now</button>
 </div>
 <div class="product">
-<h3 id="prod2">Product 2</h3>
-<p class="price">₹1200</p>
-<button id="buy2">Buy Now</button>
+<h3 id="prod2">Office Pens Set</h3>
+<p class="price">AED 25</p>
+<button>Buy Now</button>
 </div>
 </div>
-<footer>
-<p>© 2026 My Shop - Created by (hank!nd3 p4d4y41!</p>
+</section>
+
+<footer id="contact">
+<p>&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
 </footer>
+
 <script>
 function changeLanguage() {
 var lang = document.getElementById("lang").value;
@@ -123,31 +151,25 @@ var title = document.getElementById("title");
 var subtitle = document.getElementById("subtitle");
 var prod1 = document.getElementById("prod1");
 var prod2 = document.getElementById("prod2");
-var buy1 = document.getElementById("buy1");
-var buy2 = document.getElementById("buy2");
+
 if (lang === "ml") {
 title.innerHTML = "സ്വാഗതം";
-subtitle.innerHTML = "നിങ്ങളുടെ പ്രിയപ്പെട്ട കട";
-prod1.innerHTML = "ഉല്പന്നം 1";
-prod2.innerHTML = "ഉല്പന്നം 2";
-buy1.innerHTML = "വാങ്ങുക";
-buy2.innerHTML = "വാങ്ങുക";
+subtitle.innerHTML = "ഷാർജയിലെ നിങ്ങളുടെ പ്രിയപ്പെട്ട സ്റ്റേഷനറി";
+prod1.innerHTML = "പ്രീമിയം നോട്ട്ബുക്ക്";
+prod2.innerHTML = "ഓഫീസ് പേനകൾ";
 } else if (lang === "ar") {
 title.innerHTML = "أهلاً بك";
-subtitle.innerHTML = "متجرك المفضل";
-prod1.innerHTML = "المنتج 1";
-prod2.innerHTML = "المنتج 2";
-buy1.innerHTML = "اشتري الآن";
-buy2.innerHTML = "اشتري الآن";
+subtitle.innerHTML = "وجهتك الأولى للقرطاسية في الشارقة";
+prod1.innerHTML = "دفتر ملاحظات فاخر";
+prod2.innerHTML = "مجموعة أقلام مكتبية";
 } else {
 title.innerHTML = "Welcome";
-subtitle.innerHTML = "Your favorite shop";
-prod1.innerHTML = "Product 1";
-prod2.innerHTML = "Product 2";
-buy1.innerHTML = "Buy Now";
-buy2.innerHTML = "Buy Now";
+subtitle.innerHTML = "Your premier stationery destination in Sharjah";
+prod1.innerHTML = "Premium Notebook";
+prod2.innerHTML = "Office Pens Set";
 }
 }
+
 function changeTheme() {
 var theme = document.getElementById("theme").value;
 if (theme === "system") {
@@ -160,6 +182,7 @@ document.documentElement.setAttribute('data-theme', 'light');
 document.documentElement.setAttribute('data-theme', theme);
 }
 }
+
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
 if (document.getElementById("theme").value === "system") {
 if (e.matches) {
@@ -170,5 +193,6 @@ document.documentElement.setAttribute('data-theme', 'light');
 }
 });
 </script>
+
 </body>
 </html>
