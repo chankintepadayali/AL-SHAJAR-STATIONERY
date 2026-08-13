@@ -1,0 +1,21 @@
+{
+  "images": {
+    "logo": {
+      "light": "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png",
+      "dark": "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png"
+    },
+    "banners": [
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/office.jpeg",
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/school.jpeg",
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/pastpapers.jpeg",
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/printing.jpeg",
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/stamp.jpeg",
+      "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/toner.jpeg"
+    ]
+  },
+  "translations": {
+    "en": { "home": "Home", "theme": "Theme", "lang": "Language", "title": "AL SHAJAR STATIONERY" },
+    "ml": { "home": "ഹോം", "theme": "തീം", "lang": "ഭാഷ", "title": "അൽ ഷാജർ സ്റ്റേഷനറി" },
+    "ar": { "home": "الرئيسية", "theme": "السمة", "lang": "اللغة", "title": "محطة الشجر" }
+  }
+}
