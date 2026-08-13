@@ -30,9 +30,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "ഓഫീസ് പേനകൾ";
     document.getElementById("prod3").innerText = "ആർട്ട് സപ്ലൈസ്";
     
-    document.getElementById("price1").innerText = "ദിർഹം 15";
-    document.getElementById("price2").innerText = "ദിർഹം 25";
-    document.getElementById("price3").innerText = "ദിർഹം 10";
+    // Prices with Dirham Symbol (U+20C3)
+    document.getElementById("price1").innerText = "\u20C3 15";
+    document.getElementById("price2").innerText = "\u20C3 25";
+    document.getElementById("price3").innerText = "\u20C3 10";
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "വാങ്ങുക");
     
@@ -62,9 +63,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "مجموعة أقلام مكتبية";
     document.getElementById("prod3").innerText = "مستلزمات فنية";
 
-    document.getElementById("price1").innerText = "15 درهم";
-    document.getElementById("price2").innerText = "25 درهم";
-    document.getElementById("price3").innerText = "10 درهم";
+    // Prices with Dirham Symbol (U+20C3)
+    document.getElementById("price1").innerText = "\u20C3 15";
+    document.getElementById("price2").innerText = "\u20C3 25";
+    document.getElementById("price3").innerText = "\u20C3 10";
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "اشتر الآن");
 
@@ -92,9 +94,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "Office Pens Set";
     document.getElementById("prod3").innerText = "Art Supplies";
 
-    document.getElementById("price1").innerText = "AED 15";
-    document.getElementById("price2").innerText = "AED 25";
-    document.getElementById("price3").innerText = "AED 10";
+    // Prices with Dirham Symbol (U+20C3)
+    document.getElementById("price1").innerText = "\u20C3 15";
+    document.getElementById("price2").innerText = "\u20C3 25";
+    document.getElementById("price3").innerText = "\u20C3 10";
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "Buy Now");
 
