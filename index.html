@@ -2,30 +2,236 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- ഫോൺ സ്‌ക്രീനിൽ കൃത്യമായി ഫിറ്റ് ആവാൻ വേണ്ട പ്രധാന ടാഗ് 👇 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Al Shajar Stationery</title>
-<!-- External CSS Link -->
-<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --header-bg: #fff;
+  --card-bg: #fff;
+  --price-color: #27ae60;
+  --btn-bg: #3498db;
+  --btn-text: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --header-bg: #2d2d2d;
+  --card-bg: #2d2d2d;
+  --price-color: #2ecc71;
+  --btn-bg: #2980b9;
+  --btn-text: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Nav Bar */
+nav {
+  background-color: var(--header-bg);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-brand { font-weight: bold; font-size: 1.2em; }
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Sub-bar */
+.sub-bar {
+  background-color: var(--header-bg);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.9em;
+  flex-wrap: wrap;
+}
+
+select { 
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+  font-size: 0.9em; 
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Back to School Hero Banner */
+.hero-banner {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin: 15px auto;
+  width: 95%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: pulseBanner 2s infinite alternate;
+}
+
+@keyframes pulseBanner {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.01); }
+}
+
+/* Header Area */
+header {
+  background-color: var(--header-bg);
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 95%;
+}
+
+.logo { width: 140px; height: auto; border-radius: 8px; flex-shrink: 0; }
+.search-container { flex: 1; width: 100%; }
+
+.search-box {
+  display: flex;
+  width: 100%;
+  border: 2px solid var(--btn-bg);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: var(--card-bg);
+}
+
+.category-select {
+  border: none;
+  background-color: transparent;
+  padding: 10px 12px;
+  font-size: 0.85em;
+  border-right: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color);
+  min-width: 0;
+}
+
+/* Products Section */
+.products { 
+  display: flex; 
+  justify-content: center; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  margin-top: 20px; 
+  padding: 0 15px;
+}
+
+.product { 
+  border: 1px solid #ddd; 
+  padding: 20px; 
+  width: 220px; 
+  border-radius: 10px; 
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.price { 
+  color: var(--price-color); 
+  font-weight: bold; 
+  font-size: 1.2em; 
+  margin-bottom: 15px; 
+}
+
+button { 
+  background-color: var(--btn-bg); 
+  color: var(--btn-text); 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 1em; 
+  width: 100%;
+}
+
+footer { 
+  margin-top: 60px; 
+  padding: 20px; 
+  text-align: center; 
+  background-color: var(--header-bg); 
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  nav { flex-direction: column; text-align: center; }
+  .nav-links { justify-content: center; font-size: 0.9em; }
+  .sub-bar { justify-content: center; }
+  header { flex-direction: column; text-align: center; }
+  .logo { width: 120px; }
+  .search-box { flex-direction: column; border-radius: 15px; }
+  .category-select { border-right: none; border-bottom: 1px solid #ccc; padding: 8px; width: 100%; }
+  .product { width: 100%; max-width: 320px; }
+}
+</style>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav>
-  <div style="font-weight: bold; font-size: 1.2em;">AL-SHAJAR</div>
+  <div class="nav-brand">AL-SHAJAR</div>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#stationery">Stationery</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#home" id="navHome">Home</a></li>
+    <li><a href="#stationery" id="navStationery">Stationery</a></li>
+    <li><a href="#services" id="navServices">Services</a></li>
+    <li><a href="#about" id="navAbout">About</a></li>
+    <li><a href="#contact" id="navContact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- Language & Theme (Right side in Desktop, Center in Mobile) -->
+<!-- Language & Theme Sub-bar -->
 <div class="sub-bar">
   <div>
-    <label for="lang">Language: </label>
+    <label for="lang" id="lblLang">Language: </label>
     <select id="lang" onchange="changeLanguage()">
       <option value="en">English</option>
       <option value="ml">മലയാളം</option>
@@ -34,13 +240,19 @@
   </div>
 
   <div>
-    <label for="theme">Theme: </label>
+    <label for="theme" id="lblTheme">Theme: </label>
     <select id="theme" onchange="changeTheme()">
       <option value="light">Light</option>
       <option value="dark">Dark</option>
       <option value="system">System</option>
     </select>
   </div>
+</div>
+
+<!-- Back to School Banner -->
+<div class="hero-banner">
+  <h1 id="bannerTitle">🎒 Back to School Offer! ✏️</h1>
+  <p id="bannerDesc">Get up to 30% discount on all stationery items!</p>
 </div>
 
 <!-- Header Area -->
@@ -50,40 +262,40 @@
   <div class="search-container">
     <div class="search-box">
       <select class="category-select" id="categoryFilter">
-        <option value="all">All Categories</option>
-        <option value="notebooks">Notebooks</option>
-        <option value="pens">Pens & Writing</option>
-        <option value="art">Art Supplies</option>
+        <option value="all" id="catAll">All Categories</option>
+        <option value="notebooks" id="catNotebooks">Notebooks</option>
+        <option value="pens" id="catPens">Pens & Writing</option>
+        <option value="art" id="catArt">Art Supplies</option>
       </select>
       <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
     </div>
   </div>
 </header>
 
-<!-- Products -->
+<!-- Products Section -->
 <section id="stationery">
-  <h2 style="text-align: center;">Our Categories</h2>
+  <h2 style="text-align: center;" id="secTitle">Our Categories</h2>
   <div class="products">
     <div class="product">
       <h3 id="prod1">Premium Notebook</h3>
-      <p class="price">AED 15</p>
-      <button>Buy Now</button>
+      <p class="price" id="price1">AED 15</p>
+      <button class="btnBuy">Buy Now</button>
     </div>
     <div class="product">
       <h3 id="prod2">Office Pens Set</h3>
-      <p class="price">AED 25</p>
-      <button>Buy Now</button>
+      <p class="price" id="price2">AED 25</p>
+      <button class="btnBuy">Buy Now</button>
     </div>
     <div class="product">
       <h3 id="prod3">Art Supplies</h3>
-      <p class="price">AED 10</p>
-      <button>Buy Now</button>
+      <p class="price" id="price3">AED 10</p>
+      <button class="btnBuy">Buy Now</button>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
+  <p id="footerTxt">&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
 </footer>
 
 <script>
@@ -92,22 +304,110 @@ const darkLogo  = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR
 
 function changeLanguage() {
   var lang = document.getElementById("lang").value;
-  var prod1 = document.getElementById("prod1");
-  var prod2 = document.getElementById("prod2");
-  var prod3 = document.getElementById("prod3");
 
   if (lang === "ml") {
-    prod1.innerHTML = "പ്രീമിയം നോട്ട്ബുക്ക്";
-    prod2.innerHTML = "ഓഫീസ് പേനകൾ";
-    prod3.innerHTML = "ആർട്ട് സപ്ലൈസ്";
+    // Nav
+    document.getElementById("navHome").innerText = "ഹോം";
+    document.getElementById("navStationery").innerText = "സ്റ്റേഷൻ";
+    document.getElementById("navServices").innerText = "സേവനങ്ങൾ";
+    document.getElementById("navAbout").innerText = "ഞങ്ങളെക്കുറിച്ച്";
+    document.getElementById("navContact").innerText = "ബന്ധപ്പെടുക";
+    
+    // Banner
+    document.getElementById("bannerTitle").innerText = "🎒 ബാക്ക് ടു സ്കൂൾ ഓഫർ! ✏️";
+    document.getElementById("bannerDesc").innerText = "എല്ലാ സ്റ്റേഷനറി സാധനങ്ങൾക്കും 30% വരെ കിഴിവ് നേടൂ!";
+
+    // Search & Categories
+    document.getElementById("searchInput").placeholder = "ഉൽപ്പന്നങ്ങൾ തിരയുക...";
+    document.getElementById("catAll").innerText = "എല്ലാ കാറ്റഗറിയും";
+    document.getElementById("catNotebooks").innerText = "നോട്ട്ബുക്കുകൾ";
+    document.getElementById("catPens").innerText = "പേനകൾ";
+    document.getElementById("catArt").innerText = "ആർട്ട് സാമഗ്രികൾ";
+
+    // Products
+    document.getElementById("secTitle").innerText = "ഞങ്ങളുടെ ശേഖരം";
+    document.getElementById("prod1").innerText = "പ്രീമിയം നോട്ട്ബുക്ക്";
+    document.getElementById("prod2").innerText = "ഓഫീസ് പേനകൾ";
+    document.getElementById("prod3").innerText = "ആർട്ട് സപ്ലൈസ്";
+    
+    document.getElementById("price1").innerText = "ദിർഹം 15";
+    document.getElementById("price2").innerText = "ദിർഹം 25";
+    document.getElementById("price3").innerText = "ദിർഹം 10";
+
+    document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "വാങ്ങുക");
+    
+    // Footer & Controls
+    document.getElementById("lblLang").innerText = "ഭാഷ: ";
+    document.getElementById("lblTheme").innerText = "തീം: ";
+    document.getElementById("footerTxt").innerHTML = "&copy; 2026 അൽ ഷജാർ സ്റ്റേഷനറി, ഷാർജ. സർവ്വ അവകാശങ്ങളും സംരക്ഷിതം.";
+
   } else if (lang === "ar") {
-    prod1.innerHTML = "دفتر ملاحظات فاخر";
-    prod2.innerHTML = "مجموعة أقلام مكتبية";
-    prod3.innerHTML = "مستلزمات فنية";
+    // Nav
+    document.getElementById("navHome").innerText = "الرئيسية";
+    document.getElementById("navStationery").innerText = "قرطاسية";
+    document.getElementById("navServices").innerText = "الخدمات";
+    document.getElementById("navAbout").innerText = "عن المحل";
+    document.getElementById("navContact").innerText = "اتصل بنا";
+
+    // Banner
+    document.getElementById("bannerTitle").innerText = "🎒 عروض العودة إلى المدرسة! ✏️";
+    document.getElementById("bannerDesc").innerText = "احصل على خصم يصل إلى 30٪ على جميع الأدوات المكتبية!";
+
+    // Search & Categories
+    document.getElementById("searchInput").placeholder = "البحث عن المنتجات...";
+    document.getElementById("catAll").innerText = "جميع الفئات";
+    document.getElementById("catNotebooks").innerText = "دفاتر";
+    document.getElementById("catPens").innerText = "أقلام للكتابة";
+    document.getElementById("catArt").innerText = "مستلزمات فنية";
+
+    // Products
+    document.getElementById("secTitle").innerText = "منتجاتنا";
+    document.getElementById("prod1").innerText = "دفتر ملاحظات فاخر";
+    document.getElementById("prod2").innerText = "مجموعة أقلام مكتبية";
+    document.getElementById("prod3").innerText = "مستلزمات فنية";
+
+    document.getElementById("price1").innerText = "15 درهم";
+    document.getElementById("price2").innerText = "25 درهم";
+    document.getElementById("price3").innerText = "10 درهم";
+
+    document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "اشتر الآن");
+
+    // Footer & Controls
+    document.getElementById("lblLang").innerText = "اللغة: ";
+    document.getElementById("lblTheme").innerText = "المظهر: ";
+    document.getElementById("footerTxt").innerHTML = "&copy; 2026 الشجر للقرطاسية، الشارقة. جميع الحقوق محفوظة.";
+
   } else {
-    prod1.innerHTML = "Premium Notebook";
-    prod2.innerHTML = "Office Pens Set";
-    prod3.innerHTML = "Art Supplies";
+    // English (Default)
+    document.getElementById("navHome").innerText = "Home";
+    document.getElementById("navStationery").innerText = "Stationery";
+    document.getElementById("navServices").innerText = "Services";
+    document.getElementById("navAbout").innerText = "About";
+    document.getElementById("navContact").innerText = "Contact";
+
+    document.getElementById("bannerTitle").innerText = "🎒 Back to School Offer! ✏️";
+    document.getElementById("bannerDesc").innerText = "Get up to 30% discount on all stationery items!";
+
+    document.getElementById("searchInput").placeholder = "Search products...";
+    document.getElementById("catAll").innerText = "All Categories";
+    document.getElementById("catNotebooks").innerText = "Notebooks";
+    document.getElementById("catPens").innerText = "Pens & Writing";
+    document.getElementById("catArt").innerText = "Art Supplies";
+
+    document.getElementById("secTitle").innerText = "Our Categories";
+    document.getElementById("prod1").innerText = "Premium Notebook";
+    document.getElementById("prod2").innerText = "Office Pens Set";
+    document.getElementById("prod3").innerText = "Art Supplies";
+
+    document.getElementById("price1").innerText = "AED 15";
+    document.getElementById("price2").innerText = "AED 25";
+    document.getElementById("price3").innerText = "AED 10";
+
+    document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "Buy Now");
+
+    document.getElementById("lblLang").innerText = "Language: ";
+    document.getElementById("lblTheme").innerText = "Theme: ";
+    document.getElementById("footerTxt").innerHTML = "&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.";
   }
 }
 
