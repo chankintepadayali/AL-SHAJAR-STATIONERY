@@ -39,13 +39,14 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Header & Nav Structure */
 nav {
   background-color: var(--header-bg);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -68,66 +69,89 @@ nav {
   color: var(--price-color);
 }
 
+/* Top Options Bar (Language & Theme under Nav) */
+.sub-bar {
+  background-color: var(--header-bg);
+  padding: 8px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-size: 0.9em;
+}
+
+select { 
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+  font-size: 0.9em; 
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Header Area (Logo & Center Search) */
 header {
   background-color: var(--header-bg);
-  padding: 40px;
-  margin: 30px auto;
+  padding: 30px;
+  margin: 20px auto;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   max-width: 900px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   animation: fadeIn 1.2s ease-in-out;
 }
 
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 25px;
-  text-align: left;
-}
-
-/* ലോഗോ സൈസ് */
+/* Logo */
 .logo { 
   width: 150px; 
   height: auto;
   border-radius: 8px;
 }
 
-.header-right {
+/* Centralized Search Area */
+.search-container {
   flex: 1;
-}
-
-/* സെർച്ച് ബാർ */
-.search-bar {
-  width: 100%;
-  padding: 12px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-  margin-bottom: 15px;
-  outline: none;
-}
-
-.search-bar:focus {
-  border-color: var(--btn-bg);
-}
-
-.controls { 
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1em; 
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-select { 
-  padding: 8px 12px; 
-  border-radius: 5px; 
-  border: 1px solid #ccc; 
-  font-size: 0.9em; 
-  margin-right: 10px; 
+.search-box {
+  display: flex;
+  width: 100%;
+  border: 2px solid var(--btn-bg);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: var(--card-bg);
 }
 
+.category-select {
+  border: none;
+  background-color: transparent;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  border-right: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1em;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+/* Products Section */
 .products { 
   display: flex; 
   justify-content: center; 
@@ -183,6 +207,7 @@ footer {
 </head>
 <body>
 
+<!-- Main Navigation -->
 <nav>
   <div style="font-weight: bold; font-size: 1.2em;">AL-SHAJAR</div>
   <ul class="nav-links">
@@ -194,40 +219,43 @@ footer {
   </ul>
 </nav>
 
+<!-- Sub Bar (Language & Theme on Right Side) -->
+<div class="sub-bar">
+  <div>
+    <label for="lang">Language: </label>
+    <select id="lang" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="ml">മലയാളം</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="theme">Theme: </label>
+    <select id="theme" onchange="changeTheme()">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="system">System</option>
+    </select>
+  </div>
+</div>
+
+<!-- Main Header with Logo and Central Search -->
 <header id="home">
-  <div class="header-top">
-    <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
+  <!-- Left Side Logo -->
+  <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
 
-    <div class="header-right">
-      <input type="text" class="search-bar" placeholder="Search for stationery, notebooks, and more..." id="searchInput">
-      
-      <div class="controls">
-        <div>
-          <label for="categoryFilter">Category: </label>
-          <select id="categoryFilter">
-            <option value="all">All Tags</option>
-            <option value="notebooks">Notebooks</option>
-            <option value="pens">Pens & Writing</option>
-            <option value="art">Art Supplies</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="lang">Language: </label>
-          <select id="lang" onchange="changeLanguage()">
-            <option value="en">English</option>
-            <option value="ml">മലയാളം</option>
-            <option value="ar">العربية</option>
-          </select>
-
-          <label for="theme">Theme: </label>
-          <select id="theme" onchange="changeTheme()">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="system">System</option>
-          </select>
-        </div>
-      </div>
+  <!-- Center Search Bar with Categories -->
+  <div class="search-container">
+    <div class="search-box">
+      <select class="category-select" id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="notebooks">Notebooks</option>
+        <option value="pens">Pens & Writing</option>
+        <option value="art">Art Supplies</option>
+        <option value="office">Office Equipments</option>
+      </select>
+      <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
     </div>
   </div>
 </header>
