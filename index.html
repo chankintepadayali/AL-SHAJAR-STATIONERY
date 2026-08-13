@@ -1,4 +1,4 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,7 @@ footer { margin-top: 40px; }
 </style>
 </head>
 <body>
-​<header>
+<header>
 <div class="language-selector">
 <label for="lang">Choose your language: </label>
 <select id="lang" onchange="changeLanguage()">
@@ -28,7 +28,7 @@ footer { margin-top: 40px; }
 <h1 id="title">Welcome</h1>
 <p id="subtitle">Your favorite shop</p>
 </header>
-​<div class="products">
+<div class="products">
 <div class="product">
 <h3 id="prod1">Product 1</h3>
 <p class="price">₹500</p>
@@ -40,10 +40,10 @@ footer { margin-top: 40px; }
 <button id="buy2">Buy Now</button>
 </div>
 </div>
-​<footer>
+<footer>
 <p>© 2026 My Shop</p>
 </footer>
-​<script>
+<script>
 function changeLanguage() {
 var lang = document.getElementById("lang").value;
 var title = document.getElementById("title");
@@ -52,7 +52,7 @@ var prod1 = document.getElementById("prod1");
 var prod2 = document.getElementById("prod2");
 var buy1 = document.getElementById("buy1");
 var buy2 = document.getElementById("buy2");
-​if (lang === "ml") {
+if (lang === "ml") {
 title.innerHTML = "സ്വാഗതം";
 subtitle.innerHTML = "നിങ്ങളുടെ പ്രിയപ്പെട്ട കട";
 prod1.innerHTML = "ഉല്പന്നം 1";
@@ -76,5 +76,5 @@ buy2.innerHTML = "Buy Now";
 }
 }
 </script>
-​</body>
+</body>
 </html>
