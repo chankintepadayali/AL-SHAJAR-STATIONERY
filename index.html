@@ -1,69 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
-    <!-- Credits: (hank!nd3 p4d4y41! -->
-    
-    <!-- External CSS link -->
-    <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
+  <!-- Credits: (hank!nd3 p4d4y41! -->
+
+  <!-- External CSS Link -->
+  <link rel="stylesheet" href="style/style.css">
+  
+  <style>
+    /* Carousel Slider Style (Extra Addition) */
+    .carousel-wrapper {
+      max-width: 900px;
+      margin: 15px auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 95%;
+    }
+    .carousel-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .carousel-slide img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand" id="navTitle" data-i18n="title">AL SHAJAR STATIONERY</div>
-        <div class="nav-controls">
-            <select id="langSelect" onchange="updateLanguage()">
-                <option value="en">English</option>
-                <option value="ml">മലയാളം</option>
-                <option value="ar">العربية</option>
-            </select>
-            <select id="themeSelect" onchange="updateTheme()">
-                <option value="system">System</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-            </select>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand" id="navTitle">AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</div>
+    <ul class="nav-links">
+      <li><a href="#home" id="navHome">Home</a></li>
+      <li><a href="#stationery" id="navStationery">Stationery</a></li>
+      <li><a href="#services" id="navServices">Services</a></li>
+      <li><a href="#about" id="navAbout">About</a></li>
+      <li><a href="#contact" id="navContact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Logo Section -->
-    <header class="logo-header">
-        <img src="" alt="Shop Logo" class="logo" id="siteLogo">
-    </header>
+  <!-- Language & Theme Sub-bar -->
+  <div class="sub-bar">
+    <div>
+      <label for="lang" id="lblLang">Language: </label>
+      <select id="lang" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ml">മലയാളം</option>
+        <option value="ar">العربية</option>
+      </select>
+    </div>
 
-    <!-- Main Banner Carousel -->
-    <section class="carousel-wrapper">
-        <div class="carousel-container" id="carouselContainer"></div>
-        <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-        <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
-    </section>
+    <div>
+      <label for="theme" id="lblTheme">Theme: </label>
+      <select id="theme" onchange="changeTheme()">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="system">System</option>
+      </select>
+    </div>
+  </div>
 
-    <!-- Categories Section -->
-    <section class="categories-section">
-        <h2 data-i18n="categories">Categories</h2>
-        <div class="categories-grid" id="categoriesContainer">
-            <!-- Categories dynamically loaded or static content -->
-        </div>
-    </section>
+  <!-- Back to School Hero Banner (Giphy) -->
+  <div class="hero-banner">
+    <img src="https://media.giphy.com/media/l41JRsed9ufbv6u6I/giphy.gif" alt="Back to School Kids" class="banner-gif" id="bannerGif">
+    <div class="banner-text">
+      <h1 id="bannerTitle">BACK TO SCHOOL</h1>
+      <p id="bannerDesc">GET ALL STATIONERY ITEMS!</p>
+    </div>
+  </div>
 
-    <!-- Products / Services Section -->
-    <section class="products-section">
-        <h2 data-i18n="products">Our Products & Services</h2>
-        <div class="products-grid" id="productsContainer">
-            <!-- Products dynamically loaded from config or main JS -->
-        </div>
-    </section>
+  <!-- Banners Carousel Section (From Config JSON) -->
+  <div class="carousel-wrapper">
+    <div class="carousel-container" id="carouselContainer"></div>
+    <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</p>
-        </div>
-    </footer>
+  <!-- Header Area -->
+  <header id="home">
+    <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
 
-    <!-- External Script link -->
-    <script src="script/script.js"></script>
+    <div class="search-container">
+      <div class="search-box">
+        <select class="category-select" id="categoryFilter">
+          <option value="all" id="catAll">All Categories</option>
+          <option value="notebooks" id="catNotebooks">Notebooks</option>
+          <option value="pens" id="catPens">Pens & Writing</option>
+          <option value="art" id="catArt">Art Supplies</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+      </div>
+    </div>
+  </header>
+
+  <!-- Products Section -->
+  <section id="stationery">
+    <h2 style="text-align: center;" id="secTitle">Our Categories</h2>
+    <div class="products">
+      <div class="product">
+        <h3 id="prod1">Premium Notebook</h3>
+        <p class="price" id="price1">AED 15</p>
+        <button class="btnBuy">Buy Now</button>
+      </div>
+      <div class="product">
+        <h3 id="prod2">Office Pens Set</h3>
+        <p class="price" id="price2">AED 25</p>
+        <button class="btnBuy">Buy Now</button>
+      </div>
+      <div class="product">
+        <h3 id="prod3">Art Supplies</h3>
+        <p class="price" id="price3">AED 10</p>
+        <button class="btnBuy">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footerTxt">&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
+  </footer>
+
+  <!-- External JavaScript File Link -->
+  <script src="script/script.js"></script>
+
+  <!-- Dynamic Banner Loading Script from config.json -->
+  <script>
+    let currentSlideIndex = 0;
+
+    async function loadConfigBanners() {
+      try {
+        const res = await fetch('config.json');
+        const config = await res.json();
+        
+        if (config.images && config.images.banners) {
+          const container = document.getElementById('carouselContainer');
+          container.innerHTML = '';
+          config.images.banners.forEach(url => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.innerHTML = `<img src="${url}" alt="Banner">`;
+            container.appendChild(slide);
+          });
+        }
+      } catch (e) {
+        console.log("Config banners auto-load optional:", e);
+      }
+    }
+
+    function updateSlidePosition() {
+      const container = document.getElementById('carouselContainer');
+      container.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      if(slides.length === 0) return;
+      currentSlideIndex = (currentSlideIndex >= slides.length - 1) ? 0 : currentSlideIndex + 1;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      if(slides.length === 0) return;
+      currentSlideIndex = (currentSlideIndex <= 0) ? slides.length - 1 : currentSlideIndex - 1;
+      updateSlidePosition();
+    }
+
+    setInterval(nextSlide, 4000);
+    document.addEventListener('DOMContentLoaded', loadConfigBanners);
+  </script>
+
 </body>
 </html>
