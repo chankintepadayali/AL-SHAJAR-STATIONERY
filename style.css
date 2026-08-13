@@ -220,6 +220,19 @@ header {
   font-weight: bold; 
   font-size: 1.2em; 
   margin-bottom: 15px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* 🪙 UAE Dirham SVG Symbol Styling */
+.dirham-symbol {
+  width: 1.1em;
+  height: 1.1em;
+  fill: var(--price-color);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .product button { 
