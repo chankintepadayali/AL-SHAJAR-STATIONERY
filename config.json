@@ -12,10 +12,5 @@
       "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/stamp.jpeg",
       "https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/toner.jpeg"
     ]
-  },
-  "translations": {
-    "en": { "home": "Home", "theme": "Theme", "lang": "Language", "title": "AL SHAJAR STATIONERY" },
-    "ml": { "home": "ഹോം", "theme": "തീം", "lang": "ഭാഷ", "title": "അൽ ഷാജർ സ്റ്റേഷനറി" },
-    "ar": { "home": "الرئيسية", "theme": "السمة", "lang": "اللغة", "title": "محطة الشجر" }
   }
 }
