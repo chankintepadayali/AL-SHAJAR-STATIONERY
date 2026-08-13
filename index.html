@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
-
 <style>
 :root {
   --bg-color: #f0f0f0;
@@ -93,59 +92,30 @@ select {
   color: var(--text-color);
 }
 
-/* Back to School Hero Banner */
+/* Back to School Hero Banner (GIF ഒഴിവാക്കിയത്) */
 .hero-banner {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color: white;
   text-align: center;
-  padding: 25px 20px;
+  padding: 20px;
   margin: 15px auto;
   width: 95%;
   max-width: 900px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 15px;
-  overflow: hidden;
-}
-
-.banner-text {
-  flex: 1;
-  min-width: 250px;
 }
 
 .banner-text h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   font-size: 1.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
-  animation: textGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-    transform: scale(1);
-  }
-  100% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 20px #ff7e5f;
-    transform: scale(1.02);
-  }
-}
-
-.banner-gif {
-  width: 140px;
-  height: auto;
-  border-radius: 10px;
-  animation: floatKids 3s ease-in-out infinite alternate;
-}
-
-@keyframes floatKids {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-10px); }
+.banner-text p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 /* Header Area */
@@ -196,6 +166,56 @@ header {
   min-width: 0;
 }
 
+/* Banner Carousel Styles */
+.carousel-wrapper {
+  max-width: 900px;
+  width: 95%;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
 /* Products Section */
 .products { 
   display: flex; 
@@ -228,7 +248,7 @@ header {
   margin-bottom: 15px; 
 }
 
-button { 
+button.btn-buy { 
   background-color: var(--btn-bg); 
   color: var(--btn-text); 
   border: none; 
@@ -240,10 +260,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
-  opacity: 0.9;
-}
-
 footer { 
   margin-top: 60px; 
   padding: 20px; 
@@ -251,7 +267,6 @@ footer {
   background-color: var(--header-bg); 
 }
 
-/* Mobile Responsive */
 @media screen and (max-width: 768px) {
   nav { flex-direction: column; text-align: center; }
   .nav-links { justify-content: center; font-size: 0.9em; }
@@ -261,100 +276,144 @@ footer {
   .search-box { flex-direction: column; border-radius: 15px; }
   .category-select { border-right: none; border-bottom: 1px solid #ccc; padding: 8px; width: 100%; }
   .product { width: 100%; max-width: 320px; }
-  .hero-banner { flex-direction: column; }
-  .banner-gif { width: 110px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Navigation Bar -->
 <nav>
-  <div class="nav-brand">AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP </div>
+  <div class="nav-brand">AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</div>
   <ul class="nav-links">
-    <li><a href="#home" id="navHome">Home</a></li>
-    <li><a href="#stationery" id="navStationery">Stationery</a></li>
-    <li><a href="#services" id="navServices">Services</a></li>
-    <li><a href="#about" id="navAbout">About</a></li>
-    <li><a href="#contact" id="navContact">Contact</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#stationery">Stationery</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- Language & Theme Sub-bar -->
 <div class="sub-bar">
   <div>
-    <label for="lang" id="lblLang">Language: </label>
-    <select id="lang" onchange="changeLanguage()">
+    <label>Language: </label>
+    <select>
       <option value="en">English</option>
       <option value="ml">മലയാളം</option>
-      <option value="ar">العربية</option>
     </select>
   </div>
-
   <div>
-    <label for="theme" id="lblTheme">Theme: </label>
-    <select id="theme" onchange="changeTheme()">
+    <label>Theme: </label>
+    <select>
       <option value="light">Light</option>
       <option value="dark">Dark</option>
-      <option value="system">System</option>
     </select>
   </div>
 </div>
 
-<!-- Back to School Banner -->
+<!-- Back to School Banner (GIF ഇല്ലാതെ) -->
 <div class="hero-banner">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZqM2h6ZDF2MGs3a3YxdmY1dmcxaWNxeXhhbm0yaXRtdDF5MmR1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BGG7QOvhP4C4bE4/giphy.gif" alt="Back to School Kids" class="banner-gif">
   <div class="banner-text">
-    <h1 id="bannerTitle">BACK TO SCHOOL</h1>
-    <p id="bannerDesc">GET ALL STATIONERY ITEMS!</p>
+    <h1>BACK TO SCHOOL</h1>
+    <p>GET ALL STATIONERY ITEMS!</p>
   </div>
 </div>
 
-<!-- Header Area -->
+<!-- Search Header -->
 <header id="home">
-  <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
-
+  <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo">
   <div class="search-container">
     <div class="search-box">
-      <select class="category-select" id="categoryFilter">
-        <option value="all" id="catAll">All Categories</option>
-        <option value="notebooks" id="catNotebooks">Notebooks</option>
-        <option value="pens" id="catPens">Pens & Writing</option>
-        <option value="art" id="catArt">Art Supplies</option>
+      <select class="category-select">
+        <option value="all">All Categories</option>
       </select>
-      <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+      <input type="text" class="search-input" placeholder="Search products...">
     </div>
   </div>
 </header>
 
+<!-- Auto-Swiping Banner Carousel (Search-ന് താഴെ) -->
+<div class="carousel-wrapper">
+  <div class="carousel-container" id="carouselContainer">
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/office.jpeg" alt="Office Stationeries">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/school.jpeg" alt="School Stationeries">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/pastpapers.jpeg" alt="Past Papers Printing">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/printing.jpeg" alt="Printing Services">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/stamp.jpeg" alt="Stamps Making">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/toner.jpeg" alt="Printer Toners">
+    </div>
+  </div>
+  <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+  <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+</div>
+
 <!-- Products Section -->
 <section id="stationery">
-  <h2 style="text-align: center;" id="secTitle">Our Categories</h2>
   <div class="products">
     <div class="product">
-      <h3 id="prod1">Premium Notebook</h3>
-      <p class="price" id="price1">AED 15</p>
-      <button class="btnBuy">Buy Now</button>
+      <h3>Premium Notebook</h3>
+      <p class="price">AED 15</p>
+      <button class="btn-buy">Buy Now</button>
     </div>
     <div class="product">
-      <h3 id="prod2">Office Pens Set</h3>
-      <p class="price" id="price2">AED 25</p>
-      <button class="btnBuy">Buy Now</button>
+      <h3>Office Pens Set</h3>
+      <p class="price">AED 25</p>
+      <button class="btn-buy">Buy Now</button>
     </div>
     <div class="product">
-      <h3 id="prod3">Art Supplies</h3>
-      <p class="price" id="price3">AED 10</p>
-      <button class="btnBuy">Buy Now</button>
+      <h3>Art Supplies</h3>
+      <p class="price">AED 10</p>
+      <button class="btn-buy">Buy Now</button>
     </div>
   </div>
 </section>
 
 <footer>
-  <p id="footerTxt">&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
+  <p>&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
 </footer>
 
-<!-- External JavaScript File Reference -->
-<script src="script.js"></script>
+<!-- Carousel Auto Swipe Script -->
+<script>
+let currentIndex = 0;
+const container = document.getElementById('carouselContainer');
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+
+function updateSlidePosition() {
+  container.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function nextSlide() {
+  if (currentIndex >= totalSlides - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+  updateSlidePosition();
+}
+
+function prevSlide() {
+  if (currentIndex <= 0) {
+    currentIndex = totalSlides - 1;
+  } else {
+    currentIndex--;
+  }
+  updateSlidePosition();
+}
+
+setInterval(nextSlide, 3000);
+</script>
 
 </body>
 </html>
