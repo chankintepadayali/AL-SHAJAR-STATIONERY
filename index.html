@@ -3,139 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Shajar</title>
+    <title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
     <!-- Credits: (hank!nd3 p4d4y41! -->
-    <style>
-        :root { --bg-color: #f0f0f0; --text-color: #333; --header-bg: #fff; }
-        [data-theme="dark"] { --bg-color: #1a1a1a; --text-color: #f0f0f0; --header-bg: #2d2d2d; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; transition: 0.3s; margin: 0; }
-        nav { background: var(--header-bg); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { width: 140px; }
-        .carousel-wrapper { max-width: 600px; margin: 20px auto; overflow: hidden; position: relative; border-radius: 10px; }
-        .carousel-container { display: flex; transition: 0.5s ease-in-out; }
-        .carousel-slide { min-width: 100%; box-sizing: border-box; }
-        .carousel-slide img { width: 100%; max-height: 200px; object-fit: cover; display: block; }
-        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-    </style>
+    
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
-<nav>
-    <div id="navTitle" data-i18n="title">AL SHAJAR STATIONERY</div>
-    <div>
-        <select id="langSelect" onchange="updateLanguage()">
-            <option value="en">English</option>
-            <option value="ml">മലയാളം</option>
-            <option value="ar">العربية</option>
-        </select>
-        <select id="themeSelect" onchange="updateTheme()">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-        </select>
-    </div>
-</nav>
+    <!-- Header & Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand" id="navTitle" data-i18n="title">AL SHAJAR STATIONERY</div>
+        <div class="nav-controls">
+            <select id="langSelect" onchange="updateLanguage()">
+                <option value="en">English</option>
+                <option value="ml">മലയാളം</option>
+                <option value="ar">العربية</option>
+            </select>
+            <select id="themeSelect" onchange="updateTheme()">
+                <option value="system">System</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+    </nav>
 
-<header id="home" style="text-align: center; padding: 20px;">
-    <img src="" alt="Shop Logo" class="logo" id="siteLogo">
-</header>
+    <!-- Logo Section -->
+    <header class="logo-header">
+        <img src="" alt="Shop Logo" class="logo" id="siteLogo">
+    </header>
 
-<div class="carousel-wrapper">
-    <div class="carousel-container" id="carouselContainer"></div>
-    <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-    <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
-</div>
+    <!-- Main Banner Carousel -->
+    <section class="carousel-wrapper">
+        <div class="carousel-container" id="carouselContainer"></div>
+        <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+    </section>
 
-<script>
-    let config = {};
-    let currentIndex = 0;
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <h2 data-i18n="categories">Categories</h2>
+        <div class="categories-grid" id="categoriesContainer">
+            <!-- Categories dynamically loaded or static content -->
+        </div>
+    </section>
 
-    async function loadConfig() {
-        try {
-            const response = await fetch('config.json');
-            config = await response.json();
-            renderImages();
-            updateLanguage();
-            updateTheme();
-        } catch (error) {
-            console.error('Error loading config:', error);
-        }
-    }
+    <!-- Products / Services Section -->
+    <section class="products-section">
+        <h2 data-i18n="products">Our Products & Services</h2>
+        <div class="products-grid" id="productsContainer">
+            <!-- Products dynamically loaded from config or main JS -->
+        </div>
+    </section>
 
-    function renderImages() {
-        // ലോഗോ സെറ്റ് ചെയ്യുന്നു
-        const theme = document.getElementById('themeSelect').value;
-        const logoSrc = (theme === 'dark') ? config.images.logo.dark : config.images.logo.light;
-        document.getElementById('siteLogo').src = logoSrc;
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</p>
+        </div>
+    </footer>
 
-        // ബാനറുകൾ സെറ്റ് ചെയ്യുന്നു
-        const container = document.getElementById('carouselContainer');
-        container.innerHTML = '';
-        config.images.banners.forEach(url => {
-            const slide = document.createElement('div');
-            slide.className = 'carousel-slide';
-            slide.innerHTML = `<img src="${url}">`;
-            container.appendChild(slide);
-        });
-    }
-
-    function updateLanguage() {
-        const lang = document.getElementById('langSelect').value;
-        const trans = config.translations[lang];
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (trans && trans[key]) {
-                el.innerText = trans[key];
-            }
-        });
-    }
-
-    function updateTheme() {
-        const theme = document.getElementById('themeSelect').value;
-        let appliedTheme = theme;
-
-        if (theme === 'system') {
-            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            appliedTheme = isDark ? 'dark' : 'light';
-        }
-        
-        document.documentElement.setAttribute('data-theme', appliedTheme);
-        renderImages(); // തീം മാറുമ്പോൾ ലോഗോയും അപ്ഡേറ്റ് ചെയ്യാൻ
-    }
-
-    function updateSlidePosition() {
-        const container = document.getElementById('carouselContainer');
-        const slides = document.querySelectorAll('.carousel-slide');
-        container.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextSlide() {
-        const slides = document.querySelectorAll('.carousel-slide');
-        currentIndex = (currentIndex >= slides.length - 1) ? 0 : currentIndex + 1;
-        updateSlidePosition();
-    }
-
-    function prevSlide() {
-        const slides = document.querySelectorAll('.carousel-slide');
-        currentIndex = (currentIndex <= 0) ? slides.length - 1 : currentIndex - 1;
-        updateSlidePosition();
-    }
-
-    // ബാനർ ഓട്ടോമാറ്റിക് ആയി മാറുന്നു
-    setInterval(nextSlide, 5000);
-
-    // Initial load
-    loadConfig();
-
-    // സിസ്റ്റം തീം മാറ്റിയാൽ തനിയെ മാറാൻ ലിസണർ
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (document.getElementById('themeSelect').value === 'system') {
-            updateTheme();
-        }
-    });
-</script>
-
+    <!-- External Script link -->
+    <script src="script/script.js"></script>
 </body>
 </html>
