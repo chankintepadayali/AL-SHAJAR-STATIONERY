@@ -4,6 +4,8 @@
 const lightLogo = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png";
 const darkLogo  = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/6afd446b101d3380127b3f822b7ca0d5fd23daa3/logo/black%20logo%20bg.png";
 
+let currentSlideIndex = 0;
+
 function changeLanguage() {
   var lang = document.getElementById("lang").value;
 
@@ -14,10 +16,6 @@ function changeLanguage() {
     document.getElementById("navServices").innerText = "സേവനങ്ങൾ";
     document.getElementById("navAbout").innerText = "ഞങ്ങളെക്കുറിച്ച്";
     document.getElementById("navContact").innerText = "ബന്ധപ്പെടുക";
-    
-    // Banner
-    document.getElementById("bannerTitle").innerText = "ബാക്ക് ടു സ്കൂൾ";
-    document.getElementById("bannerDesc").innerText = "എല്ലാ സ്റ്റേഷനറി സാധനങ്ങളും സ്വന്തമാക്കൂ!";
 
     // Search & Categories
     document.getElementById("searchInput").placeholder = "ഉൽപ്പന്നങ്ങൾ തിരയുക...";
@@ -51,10 +49,6 @@ function changeLanguage() {
     document.getElementById("navAbout").innerText = "عن المحل";
     document.getElementById("navContact").innerText = "اتصل بنا";
 
-    // Banner
-    document.getElementById("bannerTitle").innerText = "العودة إلى المدرسة";
-    document.getElementById("bannerDesc").innerText = "احصل على جميع مستلزمات القرطاسية!";
-
     // Search & Categories
     document.getElementById("searchInput").placeholder = "البحث عن المنتجات...";
     document.getElementById("catAll").innerText = "جميع الفئات";
@@ -87,9 +81,6 @@ function changeLanguage() {
     document.getElementById("navAbout").innerText = "About";
     document.getElementById("navContact").innerText = "Contact";
 
-    document.getElementById("bannerTitle").innerText = "BACK TO SCHOOL";
-    document.getElementById("bannerDesc").innerText = "GET ALL STATIONERY ITEMS!";
-
     document.getElementById("searchInput").placeholder = "Search products...";
     document.getElementById("catAll").innerText = "All Categories";
     document.getElementById("catNotebooks").innerText = "Notebooks";
@@ -117,10 +108,10 @@ function updateLogoAndTheme(isDark) {
   var logoImg = document.getElementById("siteLogo");
   if (isDark) {
     document.documentElement.setAttribute('data-theme', 'dark');
-    logoImg.src = darkLogo;
+    if(logoImg) logoImg.src = darkLogo;
   } else {
     document.documentElement.setAttribute('data-theme', 'light');
-    logoImg.src = lightLogo;
+    if(logoImg) logoImg.src = lightLogo;
   }
 }
 
@@ -141,3 +132,50 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
     updateLogoAndTheme(e.matches);
   }
 });
+
+// Load Banners from config.json
+async function loadConfigBanners() {
+  try {
+    const res = await fetch('config.json');
+    const config = await res.json();
+    
+    if (config.images && config.images.banners) {
+      const container = document.getElementById('carouselContainer');
+      if (container) {
+        container.innerHTML = '';
+        config.images.banners.forEach(url => {
+          const slide = document.createElement('div');
+          slide.className = 'carousel-slide';
+          slide.innerHTML = `<img src="${url}" alt="Banner">`;
+          container.appendChild(slide);
+        });
+      }
+    }
+  } catch (e) {
+    console.log("Config load error:", e);
+  }
+}
+
+function updateSlidePosition() {
+  const container = document.getElementById('carouselContainer');
+  if (container) {
+    container.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+  }
+}
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  if(slides.length === 0) return;
+  currentSlideIndex = (currentSlideIndex >= slides.length - 1) ? 0 : currentSlideIndex + 1;
+  updateSlidePosition();
+}
+
+function prevSlide() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  if(slides.length === 0) return;
+  currentSlideIndex = (currentSlideIndex <= 0) ? slides.length - 1 : currentSlideIndex - 1;
+  updateSlidePosition();
+}
+
+setInterval(nextSlide, 4000);
+document.addEventListener('DOMContentLoaded', loadConfigBanners);
