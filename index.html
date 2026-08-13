@@ -5,24 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Shop</title>
 <style>
-body { font-family: sans-serif; margin: 0; padding: 20px; text-align: center; }
-header { background-color: #f4f4f4; padding: 20px; margin-bottom: 20px; }
-h1 { margin: 0; }
-.language-selector { margin-bottom: 15px; }
-.products { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.product { border: 1px solid #ddd; padding: 15px; width: 200px; border-radius: 5px; }
-.price { color: green; font-weight: bold; }
-footer { margin-top: 40px; }
+:root {
+--bg-color: #f0f0f0;
+--text-color: #333;
+--header-bg: #fff;
+--card-bg: #fff;
+--price-color: #27ae60;
+--btn-bg: #3498db;
+--btn-text: #fff;
+}
+[data-theme="dark"] {
+--bg-color: #1a1a1a;
+--text-color: #f0f0f0;
+--header-bg: #2d2d2d;
+--card-bg: #2d2d2d;
+--price-color: #2ecc71;
+--btn-bg: #2980b9;
+--btn-text: #fff;
+}
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+padding: 20px;
+text-align: center;
+background-color: var(--bg-color);
+color: var(--text-color);
+transition: background-color 0.3s, color 0.3s;
+}
+header {
+background-color: var(--header-bg);
+padding: 30px;
+margin-bottom: 30px;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+transition: background-color 0.3s;
+}
+h1 { margin: 10px 0 0 0; font-size: 2.5em; }
+.logo { max-width: 180px; margin-bottom: 20px; }
+.controls { margin-bottom: 20px; font-size: 1.1em; }
+select { padding: 8px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; margin: 0 10px; }
+.products { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+.product {
+border: 1px solid #ddd;
+padding: 25px;
+width: 220px;
+border-radius: 10px;
+background-color: var(--card-bg);
+box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+transition: transform 0.3s ease, background-color 0.3s;
+}
+.product:hover { transform: translateY(-5px); }
+.price { color: var(--price-color); font-weight: bold; font-size: 1.2em; margin-bottom: 15px; }
+button {
+background-color: var(--btn-bg);
+color: var(--btn-text);
+border: none;
+padding: 12px 25px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+transition: background-color 0.3s ease;
+}
+button:hover { background-color: #2980b9; }
+footer { margin-top: 60px; font-size: 0.9em; }
 </style>
 </head>
 <body>
 <header>
-<div class="language-selector">
-<label for="lang">Choose your language: </label>
+<img src="YOUR_LOGO_IMAGE_URL" alt="Shop Logo" class="logo">
+<div class="controls">
+<label for="lang">Language: </label>
 <select id="lang" onchange="changeLanguage()">
 <option value="en">English</option>
 <option value="ml">മലയാളം</option>
 <option value="ar">العربية</option>
+</select>
+<label for="theme">Theme: </label>
+<select id="theme" onchange="changeTheme()">
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+<option value="system">System</option>
 </select>
 </div>
 <h1 id="title">Welcome</h1>
@@ -75,6 +140,27 @@ buy1.innerHTML = "Buy Now";
 buy2.innerHTML = "Buy Now";
 }
 }
+function changeTheme() {
+var theme = document.getElementById("theme").value;
+if (theme === "system") {
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+document.documentElement.setAttribute('data-theme', 'dark');
+} else {
+document.documentElement.setAttribute('data-theme', 'light');
+}
+} else {
+document.documentElement.setAttribute('data-theme', theme);
+}
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+if (document.getElementById("theme").value === "system") {
+if (e.matches) {
+document.documentElement.setAttribute('data-theme', 'dark');
+} else {
+document.documentElement.setAttribute('data-theme', 'light');
+}
+}
+});
 </script>
 </body>
 </html>
