@@ -43,6 +43,10 @@ nav {
   animation: fadeIn 1s ease-in-out;
 }
 
+.nav-brand {
+  font-weight: bold;
+}
+
 .nav-links {
   display: flex;
   gap: 20px;
@@ -82,7 +86,7 @@ select {
 /* Header Area */
 header {
   background-color: var(--header-bg);
-  padding: 30px;
+  padding: 20px 30px;
   margin: 20px auto;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -126,6 +130,7 @@ header {
   border-right: 1px solid #ccc;
   outline: none;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 .search-input {
@@ -137,6 +142,57 @@ header {
   background-color: transparent;
   color: var(--text-color);
 }
+
+/* Banners Carousel Styling (Buttons Fixed Here) */
+.carousel-wrapper {
+  max-width: 900px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 95%;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2em;
+  width: auto;
+  z-index: 5;
+  transition: background 0.3s;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
 
 /* Products Section */
 .products { 
@@ -166,7 +222,7 @@ header {
   margin-bottom: 15px; 
 }
 
-button { 
+.product button { 
   background-color: var(--btn-bg); 
   color: var(--btn-text); 
   border: none; 
@@ -184,7 +240,7 @@ footer {
   background-color: var(--header-bg); 
 }
 
-/* 📱 MOBILE RESPONSIVE MEDIA QUERIES (ഫോണിനു വേണ്ടിയുള്ള മാറ്റങ്ങൾ) */
+/* 📱 MOBILE RESPONSIVE MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -235,7 +291,7 @@ footer {
   }
 
   .product {
-    width: 100%; /* ഫോണിൽ പ്രോഡക്റ്റുകൾ സ്ക്രീൻ വിഡ്ത്തിൽ വരും */
+    width: 100%;
     max-width: 300px;
   }
 }
