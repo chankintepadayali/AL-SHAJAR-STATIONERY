@@ -4,8 +4,8 @@
 const lightLogo = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png";
 const darkLogo  = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/6afd446b101d3380127b3f822b7ca0d5fd23daa3/logo/black%20logo%20bg.png";
 
-// UAE Dirham SVG Symbol Code
-const dirhamSvg = `<svg class="dirham-symbol" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg"><path d="M1126.87 236.42c-29.28 0-56.12 11.23-77.58 31.02l-192.52 178.68h270.1c110.19 0 199.5 89.31 199.5 199.5s-89.31 199.5-199.5 199.5H856.77l-15.63 14.5h285.73c110.19 0 199.5 89.31 199.5 199.5s-89.31 199.5-199.5 199.5H628.26l-181.7 168.61c-15.03 13.95-23.56 33.65-23.56 54.26 0 40.59 32.91 73.5 73.5 73.5h330.37l298.6 277.11c14.28 13.25 32.74 20.39 52.09 20.39 42.06 0 76.16-34.1 76.16-76.16 0-19.86-7.75-38.64-21.82-51.7l-262.14-243.14h156.61c191.09 0 346.5-155.41 346.5-346.5 0-112.59-53.86-212.6-137.38-275.91 83.52-63.31 137.38-163.32 137.38-275.91 0-191.09-155.41-346.5-346.5-346.5zm-592.83 409.2h308.23l147.18-136.59c14.28-13.25 22.81-32.04 22.81-51.9 0-40.59-32.91-73.5-73.5-73.5h-330.37L309.79 106.52c-14.28-13.25-32.74-20.39-52.09-20.39-42.06 0-76.16 34.1-76.16 76.16 0 19.86 7.75 38.64 21.82 51.7l262.14 243.14H308.89c-110.19 0-199.5 89.31-199.5 199.5s89.31 199.5 199.5 199.5h225.15l15.63-14.5H241.44c-110.19 0-199.5 89.31-199.5 199.5s89.31 199.5 199.5 199.5h292.6l-180.22 167.24c-14.28 13.25-22.81 32.04-22.81 51.9 0 40.59 32.91 73.5 73.5 73.5h129.53z"/></svg>`;
+// UAE Dirham Symbol Image
+const dirhamSymbol = `<img src="https://raw.githubusercontent.com/pooyagolchian/dirham/main/dirham.svg" class="dirham-symbol" alt="AED">`;
 
 let currentSlideIndex = 0;
 
@@ -33,10 +33,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "ഓഫീസ് പേനകൾ";
     document.getElementById("prod3").innerText = "ആർട്ട് സപ്ലൈസ്";
     
-    // Prices with Dirham SVG Symbol
-    document.getElementById("price1").innerHTML = `${dirhamSvg} 15`;
-    document.getElementById("price2").innerHTML = `${dirhamSvg} 25`;
-    document.getElementById("price3").innerHTML = `${dirhamSvg} 10`;
+    // Prices with Dirham Image Symbol
+    document.getElementById("price1").innerHTML = `${dirhamSymbol} 15`;
+    document.getElementById("price2").innerHTML = `${dirhamSymbol} 25`;
+    document.getElementById("price3").innerHTML = `${dirhamSymbol} 10`;
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "വാങ്ങുക");
     
@@ -66,10 +66,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "مجموعة أقلام مكتبية";
     document.getElementById("prod3").innerText = "مستلزمات فنية";
 
-    // Prices with Dirham SVG Symbol
-    document.getElementById("price1").innerHTML = `${dirhamSvg} 15`;
-    document.getElementById("price2").innerHTML = `${dirhamSvg} 25`;
-    document.getElementById("price3").innerHTML = `${dirhamSvg} 10`;
+    // Prices with Dirham Image Symbol
+    document.getElementById("price1").innerHTML = `${dirhamSymbol} 15`;
+    document.getElementById("price2").innerHTML = `${dirhamSymbol} 25`;
+    document.getElementById("price3").innerHTML = `${dirhamSymbol} 10`;
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "اشتر الآن");
 
@@ -97,10 +97,10 @@ function changeLanguage() {
     document.getElementById("prod2").innerText = "Office Pens Set";
     document.getElementById("prod3").innerText = "Art Supplies";
 
-    // Prices with Dirham SVG Symbol
-    document.getElementById("price1").innerHTML = `${dirhamSvg} 15`;
-    document.getElementById("price2").innerHTML = `${dirhamSvg} 25`;
-    document.getElementById("price3").innerHTML = `${dirhamSvg} 10`;
+    // Prices with Dirham Image Symbol
+    document.getElementById("price1").innerHTML = `${dirhamSymbol} 15`;
+    document.getElementById("price2").innerHTML = `${dirhamSymbol} 25`;
+    document.getElementById("price3").innerHTML = `${dirhamSymbol} 10`;
 
     document.querySelectorAll(".btnBuy").forEach(btn => btn.innerText = "Buy Now");
 
