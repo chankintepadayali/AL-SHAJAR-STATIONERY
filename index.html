@@ -70,16 +70,16 @@ nav {
 
 header {
   background-color: var(--header-bg);
-  padding: 30px;
+  padding: 40px;
   margin: 30px auto;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   max-width: 900px;
+  text-align: center;
   animation: fadeIn 1.2s ease-in-out;
 }
 
-/* --- LOGO & HEADER LAYOUT --- */
-.header-container {
+.header-top {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -87,16 +87,36 @@ header {
   text-align: left;
 }
 
-/* ⬇️ ⬇️ ⬇️ LOGO SIZE CONTROL (വലിപ്പം മാറ്റാൻ ഇവിടെ അഡ്ജസ്റ്റ് ചെയ്യാം) ⬇️ ⬇️ ⬇️ */
+/* ലോഗോ സൈസ് */
 .logo { 
-  width: 900px; 
+  width: 150px; 
   height: auto;
   border-radius: 8px;
 }
-/* ⬆️ ⬆️ ⬆️ ------------------------------------ ⬆️ ⬆️ ⬆️ */
+
+.header-right {
+  flex: 1;
+}
+
+/* സെർച്ച് ബാർ */
+.search-bar {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: var(--btn-bg);
+}
 
 .controls { 
-  margin-top: 15px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1em; 
 }
 
@@ -175,27 +195,38 @@ footer {
 </nav>
 
 <header id="home">
-  <div class="header-container">
+  <div class="header-top">
     <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
 
-    <div>
-      <h1 id="title" style="margin: 0;">Welcome</h1>
-      <p id="subtitle" style="margin: 5px 0 15px 0;">Your premier stationery destination in Sharjah</p>
+    <div class="header-right">
+      <input type="text" class="search-bar" placeholder="Search for stationery, notebooks, and more..." id="searchInput">
       
       <div class="controls">
-        <label for="lang">Language: </label>
-        <select id="lang" onchange="changeLanguage()">
-          <option value="en">English</option>
-          <option value="ml">മലയാളം</option>
-          <option value="ar">العربية</option>
-        </select>
+        <div>
+          <label for="categoryFilter">Category: </label>
+          <select id="categoryFilter">
+            <option value="all">All Tags</option>
+            <option value="notebooks">Notebooks</option>
+            <option value="pens">Pens & Writing</option>
+            <option value="art">Art Supplies</option>
+          </select>
+        </div>
 
-        <label for="theme">Theme: </label>
-        <select id="theme" onchange="changeTheme()">
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-          <option value="system">System</option>
-        </select>
+        <div>
+          <label for="lang">Language: </label>
+          <select id="lang" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ar">العربية</option>
+          </select>
+
+          <label for="theme">Theme: </label>
+          <select id="theme" onchange="changeTheme()">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="system">System</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
@@ -232,27 +263,19 @@ const darkLogo  = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR
 
 function changeLanguage() {
   var lang = document.getElementById("lang").value;
-  var title = document.getElementById("title");
-  var subtitle = document.getElementById("subtitle");
   var prod1 = document.getElementById("prod1");
   var prod2 = document.getElementById("prod2");
   var prod3 = document.getElementById("prod3");
 
   if (lang === "ml") {
-    title.innerHTML = "സ്വാഗതം";
-    subtitle.innerHTML = "ഷാർജയിലെ നിങ്ങളുടെ പ്രിയപ്പെട്ട സ്റ്റേഷനറി";
     prod1.innerHTML = "പ്രീമിയം നോട്ട്ബുക്ക്";
     prod2.innerHTML = "ഓഫീസ് പേനകൾ";
     prod3.innerHTML = "ആർട്ട് സപ്ലൈസ്";
   } else if (lang === "ar") {
-    title.innerHTML = "أهلاً بك";
-    subtitle.innerHTML = "وجهتك الأولى للقرطاسية في الشارقة";
     prod1.innerHTML = "دفتر ملاحظات فاخر";
     prod2.innerHTML = "مجموعة أقلام مكتبية";
     prod3.innerHTML = "مستلزمات فنية";
   } else {
-    title.innerHTML = "Welcome";
-    subtitle.innerHTML = "Your premier stationery destination in Sharjah";
     prod1.innerHTML = "Premium Notebook";
     prod2.innerHTML = "Office Pens Set";
     prod3.innerHTML = "Art Supplies";
