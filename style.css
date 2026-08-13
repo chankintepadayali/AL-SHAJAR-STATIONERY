@@ -1,3 +1,5 @@
+/* Credit: (hank!nd3 p4d4y41! */
+
 :root {
   --bg-color: #f0f0f0;
   --text-color: #333;
@@ -143,7 +145,7 @@ header {
   color: var(--text-color);
 }
 
-/* Banners Carousel Styling (Buttons Fixed Here) */
+/* Banners Carousel Styling */
 .carousel-wrapper {
   max-width: 900px;
   margin: 20px auto;
@@ -226,13 +228,12 @@ header {
   gap: 6px;
 }
 
-/* 🪙 UAE Dirham SVG Symbol Styling */
+/* 🪙 UAE Dirham Image Symbol Styling (Fixed sizing & alignment) */
 .dirham-symbol {
-  width: 1.1em;
-  height: 1.1em;
-  fill: var(--price-color);
-  display: inline-block;
+  height: 18px;
+  width: auto;
   vertical-align: middle;
+  margin-right: 2px;
 }
 
 .product button { 
