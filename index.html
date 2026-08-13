@@ -1,0 +1,80 @@
+​<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Shop</title>
+<style>
+body { font-family: sans-serif; margin: 0; padding: 20px; text-align: center; }
+header { background-color: #f4f4f4; padding: 20px; margin-bottom: 20px; }
+h1 { margin: 0; }
+.language-selector { margin-bottom: 15px; }
+.products { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.product { border: 1px solid #ddd; padding: 15px; width: 200px; border-radius: 5px; }
+.price { color: green; font-weight: bold; }
+footer { margin-top: 40px; }
+</style>
+</head>
+<body>
+​<header>
+<div class="language-selector">
+<label for="lang">Choose your language: </label>
+<select id="lang" onchange="changeLanguage()">
+<option value="en">English</option>
+<option value="ml">മലയാളം</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<h1 id="title">Welcome</h1>
+<p id="subtitle">Your favorite shop</p>
+</header>
+​<div class="products">
+<div class="product">
+<h3 id="prod1">Product 1</h3>
+<p class="price">₹500</p>
+<button id="buy1">Buy Now</button>
+</div>
+<div class="product">
+<h3 id="prod2">Product 2</h3>
+<p class="price">₹1200</p>
+<button id="buy2">Buy Now</button>
+</div>
+</div>
+​<footer>
+<p>© 2026 My Shop</p>
+</footer>
+​<script>
+function changeLanguage() {
+var lang = document.getElementById("lang").value;
+var title = document.getElementById("title");
+var subtitle = document.getElementById("subtitle");
+var prod1 = document.getElementById("prod1");
+var prod2 = document.getElementById("prod2");
+var buy1 = document.getElementById("buy1");
+var buy2 = document.getElementById("buy2");
+​if (lang === "ml") {
+title.innerHTML = "സ്വാഗതം";
+subtitle.innerHTML = "നിങ്ങളുടെ പ്രിയപ്പെട്ട കട";
+prod1.innerHTML = "ഉല്പന്നം 1";
+prod2.innerHTML = "ഉല്പന്നം 2";
+buy1.innerHTML = "വാങ്ങുക";
+buy2.innerHTML = "വാങ്ങുക";
+} else if (lang === "ar") {
+title.innerHTML = "أهلاً بك";
+subtitle.innerHTML = "متجرك المفضل";
+prod1.innerHTML = "المنتج 1";
+prod2.innerHTML = "المنتج 2";
+buy1.innerHTML = "اشتري الآن";
+buy2.innerHTML = "اشتري الآن";
+} else {
+title.innerHTML = "Welcome";
+subtitle.innerHTML = "Your favorite shop";
+prod1.innerHTML = "Product 1";
+prod2.innerHTML = "Product 2";
+buy1.innerHTML = "Buy Now";
+buy2.innerHTML = "Buy Now";
+}
+}
+</script>
+​</body>
+</html>
