@@ -82,14 +82,14 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* ലോഗോ ലെഫ്റ്റ് സൈഡിലാക്കാൻ */
+  justify-content: flex-start;
   gap: 25px;
   text-align: left;
 }
 
-/* ⬇️ ⬇️ ⬇️ LOGO SIZE CONTROL ⬇️ ⬇️ ⬇️ */
+/* ⬇️ ⬇️ ⬇️ LOGO SIZE CONTROL (വലിപ്പം മാറ്റാൻ ഇവിടെ അഡ്ജസ്റ്റ് ചെയ്യാം) ⬇️ ⬇️ ⬇️ */
 .logo { 
-  width: 900px; /*logo size */
+  width: 150px; 
   height: auto;
   border-radius: 8px;
 }
@@ -176,9 +176,7 @@ footer {
 
 <header id="home">
   <div class="header-container">
-    <!-- ⬇️ ⬇️ ⬇️ NEW LOGO LINK (ഇവിടെ പുതിയ ലോഗോയുടെ URL നൽകുക) ⬇️ ⬇️ ⬇️ -->
-    <img src="YOUR_NEW_LOGO_URL_HERE" alt="Shop Logo" class="logo">
-    <!-- ⬆️ ⬆️ ⬆️ ------------------------------------------- ⬆️ ⬆️ ⬆️ -->
+    <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo" id="siteLogo">
 
     <div>
       <h1 id="title" style="margin: 0;">Welcome</h1>
@@ -229,6 +227,9 @@ footer {
 </footer>
 
 <script>
+const lightLogo = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png";
+const darkLogo  = "https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/black%20logo.png";
+
 function changeLanguage() {
   var lang = document.getElementById("lang").value;
   var title = document.getElementById("title");
@@ -258,26 +259,32 @@ function changeLanguage() {
   }
 }
 
+function updateLogoAndTheme(isDark) {
+  var logoImg = document.getElementById("siteLogo");
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    logoImg.src = darkLogo;
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    logoImg.src = lightLogo;
+  }
+}
+
 function changeTheme() {
   var theme = document.getElementById("theme").value;
   if (theme === "system") {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    var isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    updateLogoAndTheme(isSystemDark);
+  } else if (theme === "dark") {
+    updateLogoAndTheme(true);
   } else {
-    document.documentElement.setAttribute('data-theme', theme);
+    updateLogoAndTheme(false);
   }
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
   if (document.getElementById("theme").value === "system") {
-    if (e.matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    updateLogoAndTheme(e.matches);
   }
 });
 </script>
