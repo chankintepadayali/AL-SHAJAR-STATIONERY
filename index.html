@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
+<title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
 
 <style>
 :root {
@@ -89,23 +89,39 @@ select {
   color: var(--text-color);
 }
 
-/* Back to School Hero Banner */
+/* Back to School Hero Banner with Animated Elements */
 .hero-banner {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color: white;
   text-align: center;
-  padding: 30px 20px;
+  padding: 25px 20px;
   margin: 15px auto;
   width: 95%;
   max-width: 900px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  animation: pulseBanner 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-@keyframes pulseBanner {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.01); }
+.banner-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.banner-gif {
+  width: 130px;
+  height: auto;
+  border-radius: 10px;
+  animation: floatKids 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatKids {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
 }
 
 /* Header Area */
@@ -211,6 +227,8 @@ footer {
   .search-box { flex-direction: column; border-radius: 15px; }
   .category-select { border-right: none; border-bottom: 1px solid #ccc; padding: 8px; width: 100%; }
   .product { width: 100%; max-width: 320px; }
+  .hero-banner { flex-direction: column; }
+  .banner-gif { width: 100px; }
 }
 </style>
 </head>
@@ -249,10 +267,13 @@ footer {
   </div>
 </div>
 
-<!-- Back to School Banner -->
+<!-- Back to School Banner with Animated Kids GIF -->
 <div class="hero-banner">
-  <h1 id="bannerTitle">🎒 BACK TO SCHOOL! </h1>
-  <p id="bannerDesc">GET ALL STATIONERY ITEMS!</p>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZqM2h6ZDF2MGs3a3YxdmY1dmcxaWNxeXhhbm0yaXRtdDF5MmR1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BGG7QOvhP4C4bE4/giphy.gif" alt="Kids School Animation" class="banner-gif">
+  <div class="banner-text">
+    <h1 id="bannerTitle">🎒 BACK TO SCHOOL! ✏️</h1>
+    <p id="bannerDesc">GET ALL STATIONERY ITEMS!</p>
+  </div>
 </div>
 
 <!-- Header Area -->
@@ -314,7 +335,7 @@ function changeLanguage() {
     document.getElementById("navContact").innerText = "ബന്ധപ്പെടുക";
     
     // Banner
-    document.getElementById("bannerTitle").innerText = "🎒 ബാക്ക് ടു സ്കൂൾ ";
+    document.getElementById("bannerTitle").innerText = "🎒 ബാക്ക് ടു സ്കൂൾ! ✏️";
     document.getElementById("bannerDesc").innerText = "എല്ലാ സ്റ്റേഷനറി സാധനങ്ങളും സ്വന്തമാക്കൂ!";
 
     // Search & Categories
@@ -350,7 +371,7 @@ function changeLanguage() {
     document.getElementById("navContact").innerText = "اتصل بنا";
 
     // Banner
-    document.getElementById("bannerTitle").innerText = "🎒العودة إلى المدرسة!";
+    document.getElementById("bannerTitle").innerText = "🎒 العودة إلى المدرسة! ✏️";
     document.getElementById("bannerDesc").innerText = "احصل على جميع مستلزمات القرطاسية!";
 
     // Search & Categories
@@ -385,7 +406,7 @@ function changeLanguage() {
     document.getElementById("navAbout").innerText = "About";
     document.getElementById("navContact").innerText = "Contact";
 
-    document.getElementById("bannerTitle").innerText = "🎒العودة إلى المدرسة!";
+    document.getElementById("bannerTitle").innerText = "🎒 BACK TO SCHOOL! ✏️";
     document.getElementById("bannerDesc").innerText = "GET ALL STATIONERY ITEMS!";
 
     document.getElementById("searchInput").placeholder = "Search products...";
