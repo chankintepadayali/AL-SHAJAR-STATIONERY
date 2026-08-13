@@ -1,420 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</title>
-<style>
-:root {
-  --bg-color: #f0f0f0;
-  --text-color: #333;
-  --header-bg: #fff;
-  --card-bg: #fff;
-  --price-color: #27ae60;
-  --btn-bg: #3498db;
-  --btn-text: #fff;
-}
-
-[data-theme="dark"] {
-  --bg-color: #1a1a1a;
-  --text-color: #f0f0f0;
-  --header-bg: #2d2d2d;
-  --card-bg: #2d2d2d;
-  --price-color: #2ecc71;
-  --btn-bg: #2980b9;
-  --btn-text: #fff;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Nav Bar */
-nav {
-  background-color: var(--header-bg);
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.nav-brand { font-weight: bold; font-size: 1.2em; }
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ff7e5f;
-}
-
-/* Sub-bar */
-.sub-bar {
-  background-color: var(--header-bg);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-  border-top: 1px solid rgba(0,0,0,0.05);
-  font-size: 0.9em;
-  flex-wrap: wrap;
-}
-
-select { 
-  padding: 5px 10px; 
-  border-radius: 5px; 
-  border: 1px solid #ccc; 
-  font-size: 0.9em; 
-  background-color: var(--card-bg);
-  color: var(--text-color);
-}
-
-/* Back to School Hero Banner */
-.hero-banner {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin: 15px auto;
-  width: 95%;
-  max-width: 900px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.banner-text h1 {
-  margin: 0 0 5px 0;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.banner-text p {
-  margin: 0;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-/* Header Area */
-header {
-  background-color: var(--header-bg);
-  padding: 20px;
-  margin: 10px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  max-width: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  width: 95%;
-}
-
-.logo { width: 140px; height: auto; border-radius: 8px; flex-shrink: 0; }
-.search-container { flex: 1; width: 100%; }
-
-.search-box {
-  display: flex;
-  width: 100%;
-  border: 2px solid var(--btn-bg);
-  border-radius: 30px;
-  overflow: hidden;
-  background-color: var(--card-bg);
-}
-
-.category-select {
-  border: none;
-  background-color: transparent;
-  padding: 10px 12px;
-  font-size: 0.85em;
-  border-right: 1px solid #ccc;
-  outline: none;
-  cursor: pointer;
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  padding: 10px 15px;
-  font-size: 0.9em;
-  outline: none;
-  background-color: transparent;
-  color: var(--text-color);
-  min-width: 0;
-}
-
-/* -------------------------------------------------------------
-   BANNER CAROUSEL STYLES (നിങ്ങൾ അപ്‌ലോഡ് ചെയ്ത ചിത്രങ്ങൾ മാത്രം ചെറുതാക്കി)
-------------------------------------------------------------- */
-.carousel-wrapper {
-  max-width: 600px;
-  width: 90%;
-  margin: 20px auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.carousel-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  position: relative;
-}
-
-.carousel-slide img {
-  width: 100%;
-  max-height: 200px; /* <--- ചിത്രങ്ങളുടെ ഉയരം കുറച്ചു */
-  display: block;
-  object-fit: cover;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  font-size: 1em;
-  transition: background-color 0.3s;
-}
-
-.carousel-button:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Products Section */
-.products { 
-  display: flex; 
-  justify-content: center; 
-  gap: 20px; 
-  flex-wrap: wrap; 
-  margin-top: 20px; 
-  padding: 0 15px;
-}
-
-.product { 
-  border: 1px solid #ddd; 
-  padding: 20px; 
-  width: 220px; 
-  border-radius: 10px; 
-  background-color: var(--card-bg);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-}
-
-.price { 
-  color: var(--price-color); 
-  font-weight: bold; 
-  font-size: 1.2em; 
-  margin-bottom: 15px; 
-}
-
-button.btn-buy { 
-  background-color: var(--btn-bg); 
-  color: var(--btn-text); 
-  border: none; 
-  padding: 10px 20px; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 1em; 
-  width: 100%;
-  transition: background-color 0.3s;
-}
-
-footer { 
-  margin-top: 60px; 
-  padding: 20px; 
-  text-align: center; 
-  background-color: var(--header-bg); 
-}
-
-@media screen and (max-width: 768px) {
-  nav { flex-direction: column; text-align: center; }
-  .nav-links { justify-content: center; font-size: 0.9em; }
-  .sub-bar { justify-content: center; }
-  header { flex-direction: column; text-align: center; }
-  .logo { width: 120px; }
-  .search-box { flex-direction: column; border-radius: 15px; }
-  .category-select { border-right: none; border-bottom: 1px solid #ccc; padding: 8px; width: 100%; }
-  .product { width: 100%; max-width: 320px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Shajar</title>
+    <!-- Credits: (hank!nd3 p4d4y41! -->
+    <style>
+        :root { --bg-color: #f0f0f0; --text-color: #333; --header-bg: #fff; }
+        [data-theme="dark"] { --bg-color: #1a1a1a; --text-color: #f0f0f0; --header-bg: #2d2d2d; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; transition: 0.3s; margin: 0; }
+        nav { background: var(--header-bg); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { width: 140px; }
+        .carousel-wrapper { max-width: 600px; margin: 20px auto; overflow: hidden; position: relative; border-radius: 10px; }
+        .carousel-container { display: flex; transition: 0.5s ease-in-out; }
+        .carousel-slide { min-width: 100%; box-sizing: border-box; }
+        .carousel-slide img { width: 100%; max-height: 200px; object-fit: cover; display: block; }
+        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <nav>
-  <div class="nav-brand">AL SHAJAR AL AKHDAR OFFICE EQUIPMENTS.TR LLC SP</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#stationery">Stationery</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <div id="navTitle" data-i18n="title">AL SHAJAR STATIONERY</div>
+    <div>
+        <select id="langSelect" onchange="updateLanguage()">
+            <option value="en">English</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ar">العربية</option>
+        </select>
+        <select id="themeSelect" onchange="updateTheme()">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
 </nav>
 
-<!-- Language & Theme Sub-bar -->
-<div class="sub-bar">
-  <div>
-    <label>Language: </label>
-    <select>
-      <option value="en">English</option>
-      <option value="ml">മലയാളം</option>
-    </select>
-  </div>
-  <div>
-    <label>Theme: </label>
-    <select>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-    </select>
-  </div>
-</div>
-
-<!-- Back to School Banner -->
-<div class="hero-banner">
-  <div class="banner-text">
-    <h1>BACK TO SCHOOL</h1>
-    <p>GET ALL STATIONERY ITEMS!</p>
-  </div>
-</div>
-
-<!-- Search Header -->
-<header id="home">
-  <img src="https://raw.githubusercontent.com/chankintepadayali/AL-SHAJAR-STATIONERY/ac3587723b488cc77d720d4fe1b1347035380a24/logo/alshajar%20logo%20bg.png" alt="Shop Logo" class="logo">
-  <div class="search-container">
-    <div class="search-box">
-      <select class="category-select">
-        <option value="all">All Categories</option>
-      </select>
-      <input type="text" class="search-input" placeholder="Search products...">
-    </div>
-  </div>
+<header id="home" style="text-align: center; padding: 20px;">
+    <img src="" alt="Shop Logo" class="logo" id="siteLogo">
 </header>
 
-<!-- Banner Carousel -->
 <div class="carousel-wrapper">
-  <div class="carousel-container" id="carouselContainer">
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/office.jpeg" alt="Office Stationeries">
-    </div>
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/school.jpeg" alt="School Stationeries">
-    </div>
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/pastpapers.jpeg" alt="Past Papers Printing">
-    </div>
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/printing.jpeg" alt="Printing Services">
-    </div>
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/stamp.jpeg" alt="Stamps Making">
-    </div>
-    <div class="carousel-slide">
-      <img src="https://raw.githubusercontent.com/fayas-monu/AL-SHAJAR-STATIONERY/07a79661b014c77c77f5f16f3cb04a8d3b44f645/logo/toner.jpeg" alt="Printer Toners">
-    </div>
-  </div>
-  <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-  <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+    <div class="carousel-container" id="carouselContainer"></div>
+    <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
 </div>
 
-<!-- Products Section -->
-<section id="stationery">
-  <div class="products">
-    <div class="product">
-      <h3>Premium Notebook</h3>
-      <p class="price">AED 15</p>
-      <button class="btn-buy">Buy Now</button>
-    </div>
-    <div class="product">
-      <h3>Office Pens Set</h3>
-      <p class="price">AED 25</p>
-      <button class="btn-buy">Buy Now</button>
-    </div>
-    <div class="product">
-      <h3>Art Supplies</h3>
-      <p class="price">AED 10</p>
-      <button class="btn-buy">Buy Now</button>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2026 Al Shajar Stationery, Sharjah. All rights reserved.</p>
-</footer>
-
-<!-- Carousel Auto Swipe Script -->
 <script>
-let currentIndex = 0;
-const container = document.getElementById('carouselContainer');
-const slides = document.querySelectorAll('.carousel-slide');
-const totalSlides = slides.length;
+    let config = {};
+    let currentIndex = 0;
 
-function updateSlidePosition() {
-  container.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+    async function loadConfig() {
+        try {
+            const response = await fetch('config.json');
+            config = await response.json();
+            renderImages();
+            updateLanguage();
+            updateTheme();
+        } catch (error) {
+            console.error('Error loading config:', error);
+        }
+    }
 
-function nextSlide() {
-  if (currentIndex >= totalSlides - 1) {
-    currentIndex = 0;
-  } else {
-    currentIndex++;
-  }
-  updateSlidePosition();
-}
+    function renderImages() {
+        // ലോഗോ സെറ്റ് ചെയ്യുന്നു
+        const theme = document.getElementById('themeSelect').value;
+        const logoSrc = (theme === 'dark') ? config.images.logo.dark : config.images.logo.light;
+        document.getElementById('siteLogo').src = logoSrc;
 
-function prevSlide() {
-  if (currentIndex <= 0) {
-    currentIndex = totalSlides - 1;
-  } else {
-    currentIndex--;
-  }
-  updateSlidePosition();
-}
+        // ബാനറുകൾ സെറ്റ് ചെയ്യുന്നു
+        const container = document.getElementById('carouselContainer');
+        container.innerHTML = '';
+        config.images.banners.forEach(url => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.innerHTML = `<img src="${url}">`;
+            container.appendChild(slide);
+        });
+    }
 
-setInterval(nextSlide, 6000);
+    function updateLanguage() {
+        const lang = document.getElementById('langSelect').value;
+        const trans = config.translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (trans && trans[key]) {
+                el.innerText = trans[key];
+            }
+        });
+    }
+
+    function updateTheme() {
+        const theme = document.getElementById('themeSelect').value;
+        let appliedTheme = theme;
+
+        if (theme === 'system') {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            appliedTheme = isDark ? 'dark' : 'light';
+        }
+        
+        document.documentElement.setAttribute('data-theme', appliedTheme);
+        renderImages(); // തീം മാറുമ്പോൾ ലോഗോയും അപ്ഡേറ്റ് ചെയ്യാൻ
+    }
+
+    function updateSlidePosition() {
+        const container = document.getElementById('carouselContainer');
+        const slides = document.querySelectorAll('.carousel-slide');
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        currentIndex = (currentIndex >= slides.length - 1) ? 0 : currentIndex + 1;
+        updateSlidePosition();
+    }
+
+    function prevSlide() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        currentIndex = (currentIndex <= 0) ? slides.length - 1 : currentIndex - 1;
+        updateSlidePosition();
+    }
+
+    // ബാനർ ഓട്ടോമാറ്റിക് ആയി മാറുന്നു
+    setInterval(nextSlide, 5000);
+
+    // Initial load
+    loadConfig();
+
+    // സിസ്റ്റം തീം മാറ്റിയാൽ തനിയെ മാറാൻ ലിസണർ
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (document.getElementById('themeSelect').value === 'system') {
+            updateTheme();
+        }
+    });
 </script>
 
 </body>
